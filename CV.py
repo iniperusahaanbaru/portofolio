@@ -492,10 +492,13 @@ def local_css(file_name):
         
 
 def show_pdf(file_path):
-    with open(file_path, "rb") as f:
-        base64_pdf = base64.b64encode(f.read()).decode('utf-8')
-    pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="1200" height="600" type="application/pdf"></iframe>'
-    st.markdown(pdf_display, unsafe_allow_html=True)   
+    if os.path.exists(file_path):
+        with open(file_path, "rb") as f:
+            base64_pdf = base64.b64encode(f.read()).decode('utf-8')
+        pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="1200" height="600" type="application/pdf"></iframe>'
+        st.markdown(pdf_display, unsafe_allow_html=True)
+    else:
+        st.error("The file does not exist.")  
 
 def set_state_project(page=None, selected_skill=None):
     st.session_state.clear()  # Reset the session state
