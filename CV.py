@@ -609,7 +609,7 @@ def render_home():
 
 
 def render_resume():
-    with open("/document/resume.pdf", "rb") as f:
+    with open("main/document/resume.pdf", "rb") as f:
         base64_pdf = base64.b64encode(f.read()).decode('utf-8')
 
     pdf_display = f'''
