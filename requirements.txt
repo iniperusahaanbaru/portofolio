@@ -1,3 +1,4 @@
 pyairtable
 requests
 Pillow
+streamlit
