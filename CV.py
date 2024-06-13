@@ -620,6 +620,9 @@ def render_home():
 def render_resume():
     script_dir = os.path.dirname(__file__)  # Get the directory of the current script
     file_path = os.path.join(script_dir, "document/resume.pdf")
+    if not os.path.isfile(file_path):
+        st.error(f"File not found: {file_path}")
+        return
     with open(file_path, "rb") as f:
         base64_pdf = base64.b64encode(f.read()).decode('utf-8')
     pdf_display = f'''
@@ -631,7 +634,6 @@ def render_resume():
 
     if st.button("Back to Home"):
         set_state(page='home')
-
 
 
 
