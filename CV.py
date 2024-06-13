@@ -620,22 +620,17 @@ def render_home():
 def render_resume():
     file_path = os.path.join(os.getcwd(), "document/resume.pdf")
     with open(file_path, "rb") as f:
-        st.download_button(
-            label="Download Resume",
-            data=f,
-            file_name="resume.pdf",
-            mime="application/pdf"
-        )
-
+        base64_pdf = base64.b64encode(f.read()).decode('utf-8')
     pdf_display = f'''
     <div style="display: flex; justify-content: center;">
-        <iframe src="{file_path}" width="1200" height="1200" type="application/pdf"></iframe>
+        <iframe src="data:application/pdf;base64,{base64_pdf}" width="1200" height="1200" type="application/pdf"></iframe>
     </div>
     '''
     st.markdown(pdf_display, unsafe_allow_html=True)
 
     if st.button("Back to Home"):
         set_state(page='home')
+
 
 
 def render_skill():
