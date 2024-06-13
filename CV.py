@@ -4,6 +4,8 @@ from requests.exceptions import HTTPError
 import time
 from PIL import Image
 import base64
+import os
+
 # Set page configuration
 
 
@@ -492,13 +494,17 @@ def local_css(file_name):
         
 
 def show_pdf(file_path):
-    if os.path.exists(file_path):
-        with open(file_path, "rb") as f:
-            base64_pdf = base64.b64encode(f.read()).decode('utf-8')
-        pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="1200" height="600" type="application/pdf"></iframe>'
-        st.markdown(pdf_display, unsafe_allow_html=True)
-    else:
-        st.error("The file does not exist.")  
+    file_path = os.path.join(os.getcwd(), file_path)
+    with open(file_path, "rb") as f:
+        st.download_button(
+            label="Download PDF",
+            data=f,
+            file_name=os.path.basename(file_path),
+            mime="application/pdf"
+        )
+    pdf_display = f'<iframe src="{file_path}" width="1200" height="600" type="application/pdf"></iframe>'
+    st.markdown(pdf_display, unsafe_allow_html=True)
+
 
 def set_state_project(page=None, selected_skill=None):
     st.session_state.clear()  # Reset the session state
@@ -612,18 +618,26 @@ def render_home():
 
 
 def render_resume():
-    with open("main/document/resume.pdf", "rb") as f:
-        base64_pdf = base64.b64encode(f.read()).decode('utf-8')
+    file_path = os.path.join(os.getcwd(), "document/resume.pdf")
+    with open(file_path, "rb") as f:
+        st.download_button(
+            label="Download Resume",
+            data=f,
+            file_name="resume.pdf",
+            mime="application/pdf"
+        )
 
     pdf_display = f'''
     <div style="display: flex; justify-content: center;">
-        <iframe src="data:application/pdf;base64,{base64_pdf}" width="1200" height="1200" type="application/pdf"></iframe>
+        <iframe src="{file_path}" width="1200" height="1200" type="application/pdf"></iframe>
     </div>
     '''
     st.markdown(pdf_display, unsafe_allow_html=True)
 
     if st.button("Back to Home"):
         set_state(page='home')
+
+
 def render_skill():
     st.markdown("<h1>Projects with selected skill</h1>", unsafe_allow_html=True)
     if st.session_state['selected_skill']:
@@ -640,10 +654,8 @@ def render_skill():
     for project, proj_data in filtered_projects.items():
         with st.expander(project):
             st.write(f"**Skills Demonstrated**: {', '.join(proj_data['skills'])}")
-            
             st.write(f"### Goal and Description")
             st.write(proj_data['goal_description'])
-            
             st.write(f"### How It Works")
             for step, description in proj_data['how_it_works'].items():
                 st.write(f"**{step}**: {description}")
@@ -663,15 +675,15 @@ def render_skill():
             st.markdown(f"<h2 title='{showcase}'>Image and Video</h2>", unsafe_allow_html=True)
             if proj_data.get("image"):
                 st.image(proj_data["image"])
-            
             if proj_data.get("video"):
                 st.video(proj_data["video"])
 
             if proj_data.get("URL") is not None:
-                show_pdf((proj_data["URL"]))
-    
+                show_pdf(proj_data["URL"])
+
     if st.button("Back to Home"):
         set_state(page='home')
+
 
 def render_projects():
     st.markdown("<h1>Projects</h1>", unsafe_allow_html=True)
@@ -711,10 +723,11 @@ def render_projects():
             if proj_data.get("video"):
                 st.video(proj_data["video"])
             if proj_data.get("URL") is not None:
-                show_pdf((proj_data["URL"]))
+                show_pdf(proj_data["URL"])
 
     if st.button("Back to Home"):
         set_state(page='home')
+
 
 def render_contact():
 
