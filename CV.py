@@ -617,6 +617,7 @@ def render_resume():
     try:
         with open(file_path, "rb") as f:
             pdf_data = f.read()
+            base64_pdf = base64.b64encode(pdf_data).decode('utf-8')
             
             # Provide a download button
             st.download_button(
@@ -626,9 +627,10 @@ def render_resume():
                 mime="application/pdf"
             )
             
-            # Display the PDF using Streamlit's file uploader for viewing
-            st.write("If the PDF is not displayed below, please use the download button above.")
-            st.write("To view the PDF, download it and open it with a PDF viewer.")
+            # Embed PDF in HTML
+            pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="100%" height="600px" type="application/pdf">'
+            st.markdown(pdf_display, unsafe_allow_html=True)
+            
     except FileNotFoundError as e:
         st.error(f"Error: {e}")
         st.write("Resume file not found.")
