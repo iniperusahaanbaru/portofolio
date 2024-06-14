@@ -613,8 +613,6 @@ def render_resume():
     script_dir = os.path.dirname(__file__)
     file_path = os.path.join(script_dir, 'Document', 'resume.pdf')
 
-    st.write(f"Attempting to open file at: {file_path}")  # Debugging line to check the path
-
     try:
         with open(file_path, "rb") as f:
             pdf_data = f.read()
@@ -633,7 +631,9 @@ def render_resume():
     except FileNotFoundError as e:
         st.error(f"Error: {e}")
         st.write("Resume file not found.")
-
+        
+    if st.button("Back to Home"):
+        set_state(page='home')
 
 def render_skill():
     st.markdown("<h1>Projects with selected skill</h1>", unsafe_allow_html=True)
