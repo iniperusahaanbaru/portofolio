@@ -615,13 +615,20 @@ def render_resume():
         with open(file_path, "rb") as f:
             base64_pdf = base64.b64encode(f.read()).decode('utf-8')
         
-        pdf_display = f'''
-        <iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="600px"></iframe>
-        '''
-        return pdf_display
+        # Display the PDF using Streamlit's write method
+        pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="600px"></iframe>'
+        st.markdown(pdf_display, unsafe_allow_html=True)
+
+        # Provide a download button
+        st.download_button(
+            label="Download Resume",
+            data=f,
+            file_name="resume.pdf",
+            mime="application/pdf"
+        )
     except FileNotFoundError as e:
-        print(f"Error: {e}")
-        return "Resume file not found."
+        st.error(f"Error: {e}")
+        st.write("Resume file not found.")
 
 def render_skill():
     st.markdown("<h1>Projects with selected skill</h1>", unsafe_allow_html=True)
