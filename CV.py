@@ -4,6 +4,7 @@ from requests.exceptions import HTTPError
 import time
 from PIL import Image
 import base64
+import os
 # Set page configuration
 
 
@@ -607,18 +608,21 @@ def render_home():
 
 
 def render_resume():
-    with open("document/resume.pdf", "rb") as f:
-        base64_pdf = base64.b64encode(f.read()).decode('utf-8')
+    # Construct the absolute path to the file
+    file_path = os.path.join(os.path.dirname(__file__), 'document', 'resume.pdf')
+    
+    try:
+        with open(file_path, "rb") as f:
+            base64_pdf = base64.b64encode(f.read()).decode('utf-8')
+        
+        pdf_display = f'''
+        <iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="600px"></iframe>
+        '''
+        return pdf_display
+    except FileNotFoundError as e:
+        print(f"Error: {e}")
+        return "Resume file not found."
 
-    pdf_display = f'''
-    <div style="display: flex; justify-content: center;">
-        <iframe src="data:application/pdf;base64,{base64_pdf}" width="1200" height="1200" type="application/pdf"></iframe>
-    </div>
-    '''
-    st.markdown(pdf_display, unsafe_allow_html=True)
-
-    if st.button("Back to Home"):
-        set_state(page='home')
 def render_skill():
     st.markdown("<h1>Projects with selected skill</h1>", unsafe_allow_html=True)
     if st.session_state['selected_skill']:
