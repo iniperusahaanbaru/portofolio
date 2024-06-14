@@ -2,3 +2,4 @@ pyairtable
 requests
 Pillow
 streamlit
+streamlit-pdf-viewer
