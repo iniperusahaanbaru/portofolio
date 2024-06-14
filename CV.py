@@ -494,8 +494,8 @@ def local_css(file_name):
         
 
 def show_pdf(file_path):
-    st.markdown(f'<iframe src="{file_path}" width="1200" height="600" type="application/pdf"></iframe>', unsafe_allow_html=True)
- 
+    with open(file_path, "rb") as f:
+        pdf_viewer(f.read(), width=700, height=500)
 
 def set_state_project(page=None, selected_skill=None):
     st.session_state.clear()  # Reset the session state
@@ -691,9 +691,9 @@ def render_projects():
         col = [col1, col2, col3][i % 3]
         with col:
             if st.button(project):
-                set_state(page='projects', selected_project=project)
+                st.session_state.selected_project = project
 
-    if st.session_state['selected_project']:
+    if 'selected_project' in st.session_state:
         selected_project = st.session_state['selected_project']
         with st.expander(selected_project, expanded=True):
             proj_data = projects[selected_project]
@@ -704,25 +704,30 @@ def render_projects():
             for step, description in proj_data['how_it_works'].items():
                 st.write(f"**{step}**: {description}")
 
-            st.markdown(f"<h2 title='{technical_skills_description}'>Technical Skills</h2>", unsafe_allow_html=True)
+            st.markdown(f"<h2>Technical Skills</h2>", unsafe_allow_html=True)
             for skill, description in proj_data['technical_skills'].items():
                 st.write(f"**{skill}**: {description}")
 
-            st.markdown(f"<h2 title='{advanced_skills_description}'>Advanced Skills</h2>", unsafe_allow_html=True)
+            st.markdown(f"<h2>Advanced Skills</h2>", unsafe_allow_html=True)
             for skill, description in proj_data['advanced_skills'].items():
                 st.write(f"**{skill}**: {description}")
 
-            st.markdown(f"<h2 title='{soft_skills_description}'>Soft Skills</h2>", unsafe_allow_html=True)
+            st.markdown(f"<h2>Soft Skills</h2>", unsafe_allow_html=True)
             if proj_data['soft_skills'] != "None":
                 for skill, description in proj_data['soft_skills'].items():
                     st.write(f"**{skill}**: {description}")
-            st.markdown(f"<h2 title='{showcase}'>Image and Video</h2>", unsafe_allow_html=True)
+
+            st.markdown(f"<h2>Image and Video</h2>", unsafe_allow_html=True)
+            script_dir = os.path.dirname(__file__)
             if proj_data.get("image"):
-                st.image(proj_data["image"])
+                image_path = os.path.join(script_dir, proj_data["image"])
+                st.image(image_path)
             if proj_data.get("video"):
-                st.video(proj_data["video"])
-            if proj_data.get("URL") is not None:
-                show_pdf((proj_data["URL"]))
+                video_path = os.path.join(script_dir, proj_data["video"])
+                st.video(video_path)
+            if proj_data.get("URL"):
+                pdf_path = os.path.join(script_dir, proj_data["URL"])
+                show_pdf(pdf_path)
 
     if st.button("Back to Home"):
         set_state(page='home')
