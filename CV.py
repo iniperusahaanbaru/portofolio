@@ -672,7 +672,7 @@ def render_skill():
                 for skill, description in proj_data['soft_skills'].items():
                     st.write(f"**{skill}**: {description}")
             st.markdown(f"<h2 title='{showcase}'>Image and Video</h2>", unsafe_allow_html=True)
-           if proj_data.get("image"):
+            if proj_data.get("image"):
                 image_path = os.path.join(os.path.dirname(__file__), 'Pictures', proj_data["image"])
                 st.image(image_path)
             if proj_data.get("video"):
@@ -720,7 +720,7 @@ def render_projects():
 
             st.markdown(f"<h2>Image and Video</h2>", unsafe_allow_html=True)
             script_dir = os.path.dirname(__file__)
-           if proj_data.get("image"):
+            if proj_data.get("image"):
                 image_path = os.path.join(os.path.dirname(__file__), 'Pictures', proj_data["image"])
                 st.image(image_path)
             if proj_data.get("video"):
