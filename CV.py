@@ -68,8 +68,8 @@ projects = {
         "soft_skills": {
             "Attention to Detail": "Ensures all data is accurately merged without errors or omissions."
         },
-        "image": "pictures/automate_excel.png",  # Path to the image file
-        "video": "video/automate_excel.mp4",  # Path to the video file
+        "image": "automate_excel.png",  # Path to the image file
+        "video": "automate_excel.mp4",  # Path to the video file
         "URL": None
     },
 
@@ -88,8 +88,8 @@ projects = {
             "Automation Engineering": "Developing scripts and processes to automate the startup and positioning of web browsers, enhancing efficiency and reducing manual work."
         },
         "soft_skills": "None",
-        "image": "pictures/automate_browser.png",  # Path to the image file if available
-        "video": "video/automate_browser.mp4",  # Path to the video file if available
+        "image": "automate_browser.png",  # Path to the image file if available
+        "video": "automate_browser.mp4",  # Path to the video file if available
         "URL": None
     },
 
@@ -116,8 +116,8 @@ projects = {
             "Out-of-the-box Thinking": "Using AI to solve complicated problems more accurately and faster than traditional methods.",
             "Error Minimization": "Implementing meticulous methods to drastically reduce errors in data extraction and processing, ensuring reliability and integrity."
         },
-        "image": "pictures/extract_parliamentary_results.png",  # Path to the image file if available
-        "video": "video/extract_parliamentary_results.mp4",  # Path to the video file if available
+        "image": "extract_parliamentary_results.png",  # Path to the image file if available
+        "video": "extract_parliamentary_results.mp4",  # Path to the video file if available
         "URL": None
     },
 
@@ -143,8 +143,8 @@ projects = {
             "Attention to Detail": "Ensuring meticulous accuracy and thoroughness in all tasks, significantly reducing the potential for errors.",
             "Error Minimization": "Implementing meticulous methods to drastically reduce errors in data extraction and processing, ensuring reliability and integrity."
         },
-        "image": "pictures/sec_scrap.png",  # Path to the image file if available
-        "video": "video/sec_scrap.mp4",  # Path to the video file if available
+        "image": "sec_scrap.png",  # Path to the image file if available
+        "video": "sec_scrap.mp4",  # Path to the video file if available
         "URL": None
     },
     "Automate Report Generation": {
@@ -169,7 +169,7 @@ projects = {
             "Tech Savviness": "Use the most recent ai technology which is faster to make and easier to use"
         },
         "image": None,  # Path to the image file if available
-        "video": "video/excel_report.mp4",  # Path to the video file if available
+        "video": "excel_report.mp4",  # Path to the video file if available
         "URL": None
     },
 
@@ -197,7 +197,7 @@ projects = {
 
         },
         "image": None,  # Path to the image file if available
-        "video": "video/screenshot_tool.mp4",  # Path to the video file if available
+        "video": "screenshot_tool.mp4",  # Path to the video file if available
         "URL": None
     },
 
@@ -228,7 +228,7 @@ projects = {
             "Tech Savviness" : "Use the most advance technology to automate a hard solve problem that was hard to solve before it was widely availablexx`"
         },
         "image": None,  # Path to the image file if available
-        "video": "video/pdf_processor.mp4",  # Path to the video file if available
+        "video": "pdf_processor.mp4",  # Path to the video file if available
         "URL": None
     },
 
@@ -259,7 +259,7 @@ projects = {
         },
         "image": None,  # Path to the image file if available
         "video": None,  # Path to the video file if available
-        "URL": "document/unilever_analysis.pdf"
+        "URL": "unilever_analysis.pdf"
     },
     ################################################################################################# BUSINESS PROPOSAL
     "Bu-Jet: AI Financial Management Tools Proposal": {
@@ -290,7 +290,7 @@ projects = {
         },
         "image": None,  # Path to the image file if available
         "video": None,  # Path to the video file if available
-        "URL": "Document/bujet_proposal.pdf"
+        "URL": "bujet_proposal.pdf"
     },
 
     "Repair Me Business Proposal": {
@@ -321,7 +321,7 @@ projects = {
         },
         "image": None,  # Path to the image file if available
         "video": None,  # Path to the video file if available
-        "URL": "document/repair_me_proposal.pdf"
+        "URL": "repair_me_proposal.pdf"
     },
 
     "Robo Warung Business Proposal": {
@@ -351,7 +351,7 @@ projects = {
         },
         "image": None,  # Path to the image file if available
         "video": None,  # Path to the video file if available
-        "URL": "document/robo_warung_proposal.pdf"
+        "URL": "robo_warung_proposal.pdf"
     },
 
     "Modular Bag Business Proposal": {
@@ -381,7 +381,7 @@ projects = {
         },
         "image": None,  # Path to the image file if available
         "video": None,  # Path to the video file if available
-        "URL": "document/doradush_bag_proposal.pdf"
+        "URL": "doradush_bag_proposal.pdf"
     },
 ## #####################################################################################3#######################################################################3 STREAMLIT
     "Restoran Review WebApp": {
@@ -408,7 +408,7 @@ projects = {
             "Attention to Detail": "Ensuring meticulous accuracy and thoroughness in all tasks, significantly reducing the potential for errors.",
         },
         "image": None,  # Path to the image file if available
-        "video": "video/restoran_review.mp4",  # Path to the video file if available
+        "video": "restoran_review.mp4",  # Path to the video file if available
         "URL": None
     },
 
@@ -437,7 +437,7 @@ projects = {
             "Effective Communication": "Clearly conveying project statuses and updates through well-structured dashboards and notifications."
         },
         "image": None,  # Path to the image file if available
-        "video": "video/project_management_dashboard.mp4",  # Path to the video file if available
+        "video": "project_management_dashboard.mp4",  # Path to the video file if available
         "URL": None
     },
 }
@@ -672,14 +672,15 @@ def render_skill():
                 for skill, description in proj_data['soft_skills'].items():
                     st.write(f"**{skill}**: {description}")
             st.markdown(f"<h2 title='{showcase}'>Image and Video</h2>", unsafe_allow_html=True)
-            if proj_data.get("image"):
-                st.image(proj_data["image"])
-            
+           if proj_data.get("image"):
+                image_path = os.path.join(os.path.dirname(__file__), 'Pictures', proj_data["image"])
+                st.image(image_path)
             if proj_data.get("video"):
-                st.video(proj_data["video"])
-
+                video_path = os.path.join(os.path.dirname(__file__), 'Video', proj_data["video"])
+                st.video(video_path)
             if proj_data.get("URL") is not None:
-                show_pdf((proj_data["URL"]))
+                pdf_path = os.path.join(os.path.dirname(__file__), 'Document', proj_data["URL"])
+                show_pdf(pdf_path)
     
     if st.button("Back to Home"):
         set_state(page='home')
@@ -719,14 +720,14 @@ def render_projects():
 
             st.markdown(f"<h2>Image and Video</h2>", unsafe_allow_html=True)
             script_dir = os.path.dirname(__file__)
-            if proj_data.get("image"):
-                image_path = os.path.join(script_dir, proj_data["image"])
+           if proj_data.get("image"):
+                image_path = os.path.join(os.path.dirname(__file__), 'Pictures', proj_data["image"])
                 st.image(image_path)
             if proj_data.get("video"):
-                video_path = os.path.join(script_dir, proj_data["video"])
+                video_path = os.path.join(os.path.dirname(__file__), 'Video', proj_data["video"])
                 st.video(video_path)
-            if proj_data.get("URL"):
-                pdf_path = os.path.join(script_dir, proj_data["URL"])
+            if proj_data.get("URL") is not None:
+                pdf_path = os.path.join(os.path.dirname(__file__), 'Document', proj_data["URL"])
                 show_pdf(pdf_path)
 
     if st.button("Back to Home"):
