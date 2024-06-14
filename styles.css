@@ -62,7 +62,7 @@ hr {
 .stLinkButton a {
     width: 100%;
     background-color: #FF6F61;  /* Coral color */
-    color: #ffffff;
+    color: #ffffff !important;  /* Ensure text is white */
     border: none;
     padding: 12px 20px;
     font-size: 1rem;
