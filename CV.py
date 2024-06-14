@@ -618,7 +618,7 @@ def render_resume():
             pdf_data = f.read()
 
             # Use the streamlit-pdf-viewer component to display the PDF
-            pdf_viewer(pdf_data)
+            pdf_viewer(pdf_data, width=700, height=500)
             
             # Provide a download button
             st.download_button(
