@@ -609,8 +609,11 @@ def render_home():
 
 def render_resume():
     # Construct the absolute path to the file
-    file_path = os.path.join(os.path.dirname(__file__), 'document', 'resume.pdf')
-    
+    script_dir = os.path.dirname(__file__)
+    file_path = os.path.join(script_dir, 'Document', 'resume.pdf')
+
+    st.write(f"Attempting to open file at: {file_path}")  # Debugging line to check the path
+
     try:
         with open(file_path, "rb") as f:
             base64_pdf = base64.b64encode(f.read()).decode('utf-8')
