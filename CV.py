@@ -576,7 +576,8 @@ def render_home():
             set_state(page='contact')
     with col4:
         if st.button("Chat With My Bot!"):
-            redirect("https://chatgpt.com/g/g-3HRu9clyI-hanif-r-gpt")
+            js = "window.location.href = 'https://chatgpt.com/g/g-3HRu9clyI-hanif-r-gpt';"
+            st.markdown(f'<script>{js}</script>', unsafe_allow_html=True)
 
     st.markdown("<hr>", unsafe_allow_html=True)
 
