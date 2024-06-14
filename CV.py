@@ -5,6 +5,7 @@ import time
 from PIL import Image
 import base64
 import os
+from streamlit_pdf_viewer import pdf_viewer
 # Set page configuration
 
 
@@ -617,7 +618,9 @@ def render_resume():
     try:
         with open(file_path, "rb") as f:
             pdf_data = f.read()
-            base64_pdf = base64.b64encode(pdf_data).decode('utf-8')
+
+            # Use the streamlit-pdf-viewer component to display the PDF
+            pdf_viewer(pdf_data)
             
             # Provide a download button
             st.download_button(
@@ -626,10 +629,6 @@ def render_resume():
                 file_name="resume.pdf",
                 mime="application/pdf"
             )
-            
-            # Embed PDF in HTML
-            pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="100%" height="600px" type="application/pdf">'
-            st.markdown(pdf_display, unsafe_allow_html=True)
             
     except FileNotFoundError as e:
         st.error(f"Error: {e}")
