@@ -678,7 +678,7 @@ def render_skill():
             if proj_data.get("video"):
                 video_path = os.path.join(os.path.dirname(__file__), 'Video', proj_data["video"])
                 st.video(video_path)
-            if proj_data.get("URL") is not None:
+            if proj_data.get("URL"):
                 pdf_path = os.path.join(os.path.dirname(__file__), 'Document', proj_data["URL"])
                 show_pdf(pdf_path)
     
@@ -727,7 +727,7 @@ def render_projects():
                 if proj_data.get("video"):
                     video_path = os.path.join(os.path.dirname(__file__), 'Video', proj_data["video"])
                     st.video(video_path)
-                if proj_data.get("URL") is not None:
+                if proj_data.get("URL"):
                     pdf_path = os.path.join(os.path.dirname(__file__), 'Document', proj_data["URL"])
                     show_pdf(pdf_path)
 
