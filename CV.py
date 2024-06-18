@@ -495,8 +495,11 @@ def local_css(file_name):
         
 
 def show_pdf(file_path):
-    with open(file_path, "rb") as f:
-        pdf_viewer(f.read(), width=700, height=500)
+    try:
+        with open(file_path, "rb") as f:
+            pdf_viewer(f.read(), width=700, height=500)
+    except Exception as e:
+        st.write(f"Error reading PDF file: {e}")
 
 def set_state_project(page=None, selected_skill=None):
     st.session_state.clear()  # Reset the session state
@@ -671,6 +674,7 @@ def render_skill():
             if proj_data['soft_skills'] != "None":
                 for skill, description in proj_data['soft_skills'].items():
                     st.write(f"**{skill}**: {description}")
+
             st.markdown(f"<h2 title='{showcase}'>Image and Video</h2>", unsafe_allow_html=True)
             if proj_data.get("image"):
                 image_path = os.path.join(os.path.dirname(__file__), 'Pictures', proj_data["image"])
@@ -680,7 +684,12 @@ def render_skill():
                 st.video(video_path)
             if proj_data.get("URL"):
                 pdf_path = os.path.join(os.path.dirname(__file__), 'Document', proj_data["URL"])
-                show_pdf(pdf_path)
+                # Debugging: Print the PDF path to ensure it's correct
+                st.write(f"PDF path: {pdf_path}")
+                try:
+                    show_pdf(pdf_path)
+                except Exception as e:
+                    st.write(f"Error displaying PDF: {e}")
     
     if st.button("Back to Home"):
         set_state(page='home')
