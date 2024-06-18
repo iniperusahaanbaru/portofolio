@@ -501,9 +501,17 @@ def show_pdf(file_path):
     try:
         with open(file_path, "rb") as f:
             pdf_data = f.read()
-            pdf_viewer(pdf_data, width=700, height=500)  # Assuming pdf_viewer is the correct way to show PDFs in your setup
+            st.download_button(
+                label="Download PDF",
+                data=pdf_data,
+                file_name=os.path.basename(file_path),
+                mime="application/pdf"
+            )
+            # Use the Streamlit PDF viewer or another method to display the PDF if possible
+            pdf_viewer(pdf_data, width=700, height=500)
     except Exception as e:
         st.write(f"Error reading PDF file: {e}")
+
 
 
 def set_state_project(page=None, selected_skill=None):
@@ -697,6 +705,7 @@ def render_skill():
     
     if st.button("Back to Home"):
         set_state(page='home')
+
 
 def render_projects():
     st.markdown("<h1>Projects</h1>", unsafe_allow_html=True)
