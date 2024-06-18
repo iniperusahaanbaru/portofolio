@@ -20,7 +20,8 @@ technical_skills = {
     "PowerPoint": "Creates professional presentations to share information effectively.",
     "Firestore Database": "Can work with a special kind of database designed for real-time data updates.",
     "Google Storage API": "Can store and access data in Google's cloud storage.",
-    "Basic HTML and CSS for Streamlit": "Uses basic web design skills to make apps built with Streamlit look nice and work well."
+    "Basic HTML and CSS for Streamlit": "Uses basic web design skills to make apps built with Streamlit look nice and work well.",
+    "Microsoft Word": "Can arrange and write and modified document in propesional format"
 }
 
 advanced_skills = {
@@ -233,7 +234,7 @@ projects = {
     },
 
     "Financial Report Analysis for PT Unilever Indonesia Tbk": {
-        "skills": ["Business Analysis", "Data Processing", "Financial Analysis", "Attention to Detail", "Effective Communication"],
+        "skills": ["Business Analysis", "Data Processing", "Financial Analysis", "Attention to Detail", "Effective Communication","],
         "goal_description": "To conduct a comprehensive financial analysis of PT Unilever Indonesia Tbk using ratio analysis, vertical analysis, and horizontal analysis.",
         "how_it_works": {
             "Activity Ratios": "Analyze the effectiveness of resource utilization using metrics such as inventory turnover and days' sales in inventory.",
@@ -355,7 +356,7 @@ projects = {
     },
 
     "Modular Bag Business Proposal": {
-        "skills": ["PowerPoint", "Business Analysis", "Presentation Design", "Attention to Detail", "Effective Communication", "Proposal Writing", "Product Design", "Leadership", "Teamwork", "Creative Problem Solving"],
+        "skills": ["Microsoft Word", "Business Analysis", "Presentation Design", "Attention to Detail", "Effective Communication", "Proposal Writing", "Product Design", "Leadership", "Teamwork", "Creative Problem Solving"],
         "goal_description": "To create a comprehensive business proposal for 'Doradush Bag,' a modular and adjustable bag designed to cater to various user needs and preferences.",
         "how_it_works": {
             "Market Analysis": "Evaluate the market size and potential reach, focusing on different demographic segments including students, professionals, and photographers.",
