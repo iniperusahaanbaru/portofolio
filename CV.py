@@ -473,8 +473,6 @@ def set_state(page=None, selected_project=None, project=None):
     if selected_project:
         st.session_state['selected_project'] = selected_project
 
-    if selected_skill:
-        st.session_state['selected_skill'] = selected_skill
 
     if project:
         st.session_state['project'] = project
