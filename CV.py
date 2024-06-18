@@ -497,9 +497,11 @@ def local_css(file_name):
 def show_pdf(file_path):
     try:
         with open(file_path, "rb") as f:
-            pdf_viewer(f.read(), width=700, height=500)
+            pdf_data = f.read()
+            pdf_viewer(pdf_data, width=700, height=500)  # Assuming pdf_viewer is the correct way to show PDFs in your setup
     except Exception as e:
         st.write(f"Error reading PDF file: {e}")
+
 
 def set_state_project(page=None, selected_skill=None):
     st.session_state.clear()  # Reset the session state
