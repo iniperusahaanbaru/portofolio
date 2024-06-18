@@ -684,8 +684,7 @@ def render_skill():
                 st.video(video_path)
             if proj_data.get("URL"):
                 pdf_path = os.path.join(os.path.dirname(__file__), 'Document', proj_data["URL"])
-                # Debugging: Print the PDF path to ensure it's correct
-                st.write(f"PDF path: {pdf_path}")
+                st.write(f"PDF path: {pdf_path}")  # This should display the correct path
                 try:
                     show_pdf(pdf_path)
                 except Exception as e:
