@@ -696,6 +696,7 @@ def render_projects():
     if 'selected_project' in st.session_state:
         selected_project = st.session_state['selected_project']
         if selected_project in projects:
+            set_state(selected_project= st.session_state['selected_project'])
             with st.expander(selected_project, expanded=True):
                 proj_data = projects[selected_project]
                 st.write(f"**Skills Demonstrated**: {', '.join(proj_data['skills'])}")
@@ -728,6 +729,8 @@ def render_projects():
                 if proj_data.get("URL") is not None:
                     pdf_path = os.path.join(os.path.dirname(__file__), 'Document', proj_data["URL"])
                     show_pdf(pdf_path)
+                    time.sleep(0.1)
+                    st.rerun()
 
     if st.button("Back to Home"):
         set_state(page='home')
