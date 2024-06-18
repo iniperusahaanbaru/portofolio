@@ -729,8 +729,6 @@ def render_projects():
                 if proj_data.get("URL") is not None:
                     pdf_path = os.path.join(os.path.dirname(__file__), 'Document', proj_data["URL"])
                     show_pdf(pdf_path)
-                    time.sleep(0.1)
-                    st.rerun()
 
     if st.button("Back to Home"):
         set_state(page='home')
