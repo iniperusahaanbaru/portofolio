@@ -234,7 +234,7 @@ projects = {
     },
 
     "Financial Report Analysis for PT Unilever Indonesia Tbk": {
-        "skills": ["Business Analysis", "Data Processing", "Financial Analysis", "Attention to Detail", "Effective Communication","],
+        "skills": ["Business Analysis", "Data Processing", "Financial Analysis", "Attention to Detail", "Effective Communication","Microsoft Word"],
         "goal_description": "To conduct a comprehensive financial analysis of PT Unilever Indonesia Tbk using ratio analysis, vertical analysis, and horizontal analysis.",
         "how_it_works": {
             "Activity Ratios": "Analyze the effectiveness of resource utilization using metrics such as inventory turnover and days' sales in inventory.",
