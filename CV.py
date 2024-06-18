@@ -463,7 +463,7 @@ showcase= " Image and video that proof of development or the result of the app"
 st.set_page_config(page_title='My Portfolio', layout='wide', page_icon=':tada:')
 
 # Function to set the state and rerun the app
-def set_state(page=None, selected_project=None):
+def set_state(page=None, selected_project=None, project=None):
     st.query_params.clear()  # Clear all query parameters
     st.session_state.clear()  # Reset the session state
 
@@ -473,15 +473,20 @@ def set_state(page=None, selected_project=None):
     if selected_project:
         st.session_state['selected_project'] = selected_project
 
+    if selected_skill:
+        st.session_state['selected_skill'] = selected_skill
+
+    if project:
+        st.session_state['project'] = project
+
     # Update query parameters (using st.query_params)
     params = st.query_params.to_dict()  # Get all parameters as a dictionary
     if 'page' in st.session_state:
         params['page'] = st.session_state['page']
     if 'selected_project' in st.session_state:
         params['selected_project'] = st.session_state['selected_project']
-
-    if 'selected_skill' in params:
-        del params['selected_skill']
+    if 'project' in st.session_state:
+        params['project'] = st.session_state['project']
 
     st.query_params.update(params)
     time.sleep(0.1)
@@ -702,7 +707,7 @@ def render_projects():
         col = [col1, col2, col3][i % 3]
         with col:
             if st.button(project):
-                st.session_state.selected_project = project
+                set_state(page='projects', selected_project=project, project=project)
 
     if 'selected_project' in st.session_state:
         selected_project = st.session_state['selected_project']
@@ -743,6 +748,7 @@ def render_projects():
 
     if st.button("Back to Home"):
         set_state(page='home')
+
         
 def render_contact():
 
