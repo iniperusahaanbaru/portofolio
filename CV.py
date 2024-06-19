@@ -97,7 +97,7 @@ projects = {
     },
 
     "Extract Parliamentary Results from PDF to CSV": {
-        "skills": ["Python Programming", "Automation Engineering", "Data Extraction", "AI API Integration", "Out-of-the-box Thinking", "Error Minimization", "GUI Creation","Tech Savviness"],
+        "skills": ["Python Programming", "Automation Engineering", "Data Extraction", "AI API Integration", "Out-of-the-box Thinking", "Error Minimization", "GUI Creation","Tech Savviness","Prompt Engineering"],
         "goal_description": "To automate the extraction and processing of parliamentary election results from PDF files, converting the data into a structured CSV format for research purposes.",
         "how_it_works": {
             "Select PDF Files": "Users select multiple PDF files using a file dialog within the application.",
@@ -151,7 +151,7 @@ projects = {
         "URL": None
     },
     "Automate Report Generation": {
-        "skills": ["Python Programming", "Data Processing" ,"Automation Engineering", "GUI Creation", "Attention to Detail", "Error Minimization","Tech Savviness"],
+        "skills": ["Python Programming", "Data Processing" ,"Automation Engineering", "GUI Creation", "Attention to Detail", "Error Minimization","Tech Savviness",""Prompt Engineering"],
         "goal_description": "To automate the processing of Excel data and generate comprehensive reports, enhancing efficiency and accuracy in data analysis and presentation.",
         "how_it_works": {
             "Upload and Read Excel File": "Users upload an Excel file, which is read into the application using pandas.",
@@ -165,6 +165,7 @@ projects = {
             "Data Processing": "Techniques for handling and transforming data to ensure accurate analysis and visualization.",
             "Automation Engineering": "Developing scripts and processes to automate the data analysis and report generation, enhancing efficiency and reducing manual work.",
             "GUI Creation": "Developing a user-friendly graphical interface for the application.",
+            ""Prompt Engineering": "Designing effective prompts for the AI model to analyze and give a report."
         },
         "soft_skills": {
             "Attention to Detail": "Ensuring meticulous accuracy and thoroughness in all tasks, significantly reducing the potential for errors.",
@@ -177,7 +178,7 @@ projects = {
     },
 
     "AI Screenshot App": {
-        "skills": ["Python Programming", "GUI Creation", "AI API Integration", "Attention to Detail", "Product Design","Tech Savviness"],
+        "skills": ["Python Programming", "GUI Creation", "AI API Integration", "Attention to Detail", "Product Design","Tech Savviness", "Prompt Engineering"],
         "goal_description": "To create a screenshot tool that integrates with AI for providing detailed explanations based on the captured images and converting text to Excel format.",
         "how_it_works": {
             "Take Screenshot": "Users can take a screenshot of their screen using a custom snipping tool.",
