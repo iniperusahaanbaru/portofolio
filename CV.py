@@ -662,8 +662,8 @@ def render_skill():
             st.write(f"**Skill Description**: {technical_skills[skill]}")
         elif skill in soft_skills:
             st.write(f"**Skill Description**: {soft_skills[skill]}")
-        else:
-            st.write(f"**Skill Description**: Skill description not found for '{skill}'.")
+        elif skill in advanced_skills:
+            st.write(f"**Skill Description**: {advanced_skills[skill]}")
         filtered_projects = {project: proj_data for project, proj_data in projects.items() if skill in proj_data['skills']}
     else:
         filtered_projects = projects
