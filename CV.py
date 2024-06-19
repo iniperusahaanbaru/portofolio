@@ -88,7 +88,7 @@ projects = {
         "advanced_skills": {
             "Automation Engineering": "Developing scripts and processes to automate the startup and positioning of web browsers, enhancing efficiency and reducing manual work."
         },
-        "soft_skills": "None",
+        "soft_skills":None
         "image": "automate_browser.png",  # Path to the image file if available
         "video": "automate_browser.mp4",  # Path to the video file if available
         "URL": None
