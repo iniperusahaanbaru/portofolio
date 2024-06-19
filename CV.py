@@ -660,8 +660,11 @@ def render_skill():
         st.markdown(f"<h2>Projects with {skill}</h2>", unsafe_allow_html=True)
         if skill in technical_skills:
             st.write(f"**Skill Description**: {technical_skills[skill]}")
-        else:
+        elif skill in soft_skills:
             st.write(f"**Skill Description**: {soft_skills[skill]}")
+        else:
+            st.write(f"**Skill Description**: Skill description not found for '{skill}'.")
+            st.write(f"Debug: '{skill}' not found in technical_skills or soft_skills.")
         filtered_projects = {project: proj_data for project, proj_data in projects.items() if skill in proj_data['skills']}
     else:
         filtered_projects = projects
@@ -707,7 +710,6 @@ def render_skill():
     
     if st.button("Back to Home"):
         set_state(page='home')
-
 
 def render_projects():
     st.markdown("<h1>Projects</h1>", unsafe_allow_html=True)
