@@ -686,7 +686,7 @@ def render_skill():
                 st.write(f"**{skill}**: {description}")
 
             st.markdown(f"<h2 title='{soft_skills_description}'>Soft Skills</h2>", unsafe_allow_html=True)
-            if proj_data['soft_skills'] != None:
+            if proj_data['soft_skills'] is not None:
                 for skill, description in proj_data['soft_skills'].items():
                     st.write(f"**{skill}**: {description}")
 
