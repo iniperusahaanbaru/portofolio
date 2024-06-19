@@ -151,7 +151,7 @@ projects = {
         "URL": None
     },
     "Automate Report Generation": {
-        "skills": ["Python Programming", "Data Processing" ,"Automation Engineering", "GUI Creation", "Attention to Detail", "Error Minimization","Tech Savviness",""Prompt Engineering"],
+        "skills": ["Python Programming", "Data Processing" ,"Automation Engineering", "GUI Creation", "Attention to Detail", "Error Minimization","Tech Savviness","Prompt Engineering"],
         "goal_description": "To automate the processing of Excel data and generate comprehensive reports, enhancing efficiency and accuracy in data analysis and presentation.",
         "how_it_works": {
             "Upload and Read Excel File": "Users upload an Excel file, which is read into the application using pandas.",
@@ -165,7 +165,7 @@ projects = {
             "Data Processing": "Techniques for handling and transforming data to ensure accurate analysis and visualization.",
             "Automation Engineering": "Developing scripts and processes to automate the data analysis and report generation, enhancing efficiency and reducing manual work.",
             "GUI Creation": "Developing a user-friendly graphical interface for the application.",
-            ""Prompt Engineering": "Designing effective prompts for the AI model to analyze and give a report."
+             "Prompt Engineering": "Designing effective prompts for the AI model to analyze and give a report."
         },
         "soft_skills": {
             "Attention to Detail": "Ensuring meticulous accuracy and thoroughness in all tasks, significantly reducing the potential for errors.",
