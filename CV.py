@@ -206,7 +206,7 @@ projects = {
     },
 
     "Automate CV Analyzer with Google Sheets Integration": {
-        "skills": ["Python Programming", "Google Sheets API", "Data Processing", "Automation Engineering", "Attention to Detail", "Error Minimization","Creative Problem Solving", "Product Design","GUI Creation"],
+        "skills": ["Python Programming", "Google Sheets API", "Data Processing", "Automation Engineering", "Attention to Detail", "Error Minimization","Creative Problem Solving", "Product Design","GUI Creation", "AI API Integration"],
         "goal_description": "To create a tool that processes CVs and integrates the extracted data into Google Sheets, facilitating efficient data handling and analysis.",
         "how_it_works": {
             "Select PDF Files": "Users select multiple PDF files using a file dialog within the application.",
@@ -216,7 +216,8 @@ projects = {
         },
         "technical_skills": {
             "Python Programming": "The main programming language used for developing the application.",
-            "Google Sheets API": "Utilizing the Google Sheets API for integrating and automating spreadsheet tasks."
+            "Google Sheets API": "Utilizing the Google Sheets API for integrating and automating spreadsheet tasks.",
+            "AI API Integration": "Use ai to extract and give score",
         },
         "advanced_skills": {
             "Data Processing": "Techniques for handling and transforming extracted data to ensure accuracy and consistency.",
